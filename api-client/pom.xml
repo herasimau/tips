@@ -5,11 +5,11 @@
 
 	<groupId>com.tips</groupId>
 	<artifactId>api-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>api-client</name>
-	<description>Demo project for Spring Boot</description>
+	<description>api-client</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
