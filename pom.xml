@@ -12,11 +12,12 @@
     <description>tips</description>
 
     <modules>
+        <module>api-service</module>
+        <module>api-client</module>
         <module>auth-service</module>
         <module>config-service</module>
         <module>eureka-service</module>
         <module>registration-service</module>
-        <module>api-client</module>
     </modules>
 
 </project>
