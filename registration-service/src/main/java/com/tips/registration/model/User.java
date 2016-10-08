@@ -19,14 +19,17 @@ public class User {
     @Id
     private Long id;
 
-
     @NotNull
     @Size(min = 6, max = 100)
     private String password;
+
     @NotNull
     @Size(min = 1, max = 100)
     @Email
     private String email;
+
+    @NotNull
+    private boolean enabled;
 
 
     public Long getId() {
@@ -53,5 +56,11 @@ public class User {
         this.email = email;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
 
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 }
