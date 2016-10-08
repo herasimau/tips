@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  cloud:
+    config:
+      uri: http://localhost:8888
+  application:
+    name: auth-service
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: |
+                  -----BEGIN PUBLIC KEY-----
+                  MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh8DoqCkYKgwRZhdJ6YHdDrXMeEC/mGigqUGbLb1bU71rEto67/zHqtslkjYq+I3itnRUidQ9tkdrJWpGaEsCU95LGqZP8nR/k+Ye77AJB1Rk/0kM3+vP2I9200DDPd2udi5EA9/hsgDO+BUYHzhqo3BUzyF88S0zqwYl3eY60TLpFp0W8zgbszBYlxCFYZ6FvBL9cWhQBwynsdl7e9WZwxIcwMYRjrkf4MhXnefHizC1syHxLPhujjgwGec5wjod0Bk8POAcEnUSiQCcduufI+pcLyXr+zTcdwiSue2+uf2UvZn+ckLKcpxXYuYtqGWJlkLyPWsJfMxfNLjPLLuchwIDAQAB
+                  -----END PUBLIC KEY-----
