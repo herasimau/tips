@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
 @Component
 public class EmailSender {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EmailSender.class);
+    private static final Logger Logger = LoggerFactory.getLogger(EmailSender.class);
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -36,10 +36,10 @@ public class EmailSender {
             helper.setSubject(subject);
             helper.setText(text, isHtml);
             javaMailSender.send(mail);
-            LOGGER.info("Send email '{}' to: {}", subject, to);
+            Logger.info("Send email '{}' to: {}", subject, to);
             return new EmailStatus(to, subject, text).success();
         } catch (Exception e) {
-            LOGGER.error(String.format("Problem with sending email to: {}, error message: {}", to, e.getMessage()));
+            Logger.error(String.format("Problem with sending email to: {}, error message: {}", to, e.getMessage()));
             return new EmailStatus(to, subject, text).error(e.getMessage());
         }
     }
