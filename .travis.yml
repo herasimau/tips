@@ -1,5 +1,9 @@
 sudo: required
 
+cache:
+  directories:
+    - $HOME/.m2
+
 services:
   - docker
   - mysql
@@ -17,55 +21,55 @@ before_script:
   - mysql -u root -e 'create database accounts;'
 
 after_success:
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
   #TAG
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 
   # CONFIG SERVICE
-  - export CONFIG_SERVICE=tips/config-service
+  - export CONFIG_SERVICE=herasimau/config-service
   - docker build -t $CONFIG_SERVICE:$COMMIT ./config-service
   - docker tag $CONFIG_SERVICE:$COMMIT $CONFIG_SERVICE:$TAG
   - docker push $CONFIG_SERVICE
 
   # REGISTRY
-  - export EUREKA_SERVICE=tips/eureka-service
+  - export EUREKA_SERVICE=herasimau/eureka-service
   - docker build -t $EUREKA_SERVICE:$COMMIT ./eureka-service
   - docker tag $EUREKA_SERVICE:$COMMIT $EUREKA_SERVICE:$TAG
   - docker push $EUREKA_SERVICE
 
   # API CLIENT
-  - export API_CLIENT=tips/api-client
+  - export API_CLIENT=herasimau/api-client
   - docker build -t $API_CLIENT:$COMMIT ./api-client
   - docker tag $API_CLIENT:$COMMIT $API_CLIENT:$TAG
   - docker push $API_CLIENT
 
   # AUTH SERVICE
-  - export AUTH_SERVICE=tips/auth-service
+  - export AUTH_SERVICE=herasimau/auth-service
   - docker build -t $AUTH_SERVICE:$COMMIT ./auth-service
   - docker tag $AUTH_SERVICE:$COMMIT $AUTH_SERVICE:$TAG
   - docker push $AUTH_SERVICE
 
   # API SERVICE
-  - export API_SERVICE=tips/api-service
+  - export API_SERVICE=herasimau/api-service
   - docker build -t $API_SERVICE:$COMMIT ./api-service
   - docker tag $API_SERVICE:$COMMIT $API_SERVICE:$TAG
   - docker push $API_SERVICE
 
   # REGISTRATION SERVICE
-  - export REGISTRATION_SERVICE=tips/registration-service
+  - export REGISTRATION_SERVICE=herasimau/registration-service
   - docker build -t $REGISTRATION_SERVICE:$COMMIT ./registration-service
   - docker tag $REGISTRATION_SERVICE:$COMMIT $REGISTRATION_SERVICE:$TAG
   - docker push $REGISTRATION_SERVICE
 
   # ZIPKIN_SERVICE
-  - export ZIPKIN_SERVICE=tips/zipkin-service
+  - export ZIPKIN_SERVICE=herasimau/zipkin-service
   - docker build -t $ZIPKIN_SERVICE:$COMMIT ./zipkin-service
   - docker tag $ZIPKIN_SERVICE:$COMMIT $ZIPKIN_SERVICE:$TAG
   - docker push $ZIPKIN_SERVICE
 
   # MONITORING
-  - export HYSTRIX_DASHBOARD=tips/hystrix-dashboard
+  - export HYSTRIX_DASHBOARD=herasimau/hystrix-dashboard
   - docker build -t $HYSTRIX_DASHBOARD:$COMMIT ./hystrix-dashborad
   - docker tag $HYSTRIX_DASHBOARD:$COMMIT $HYSTRIX_DASHBOARD:$TAG
   - docker push $HYSTRIX_DASHBOARD
