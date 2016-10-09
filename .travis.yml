@@ -8,7 +8,8 @@ language: java
 jdk: oraclejdk8
 
 before_script:
-  - mysql -e 'create database accounts;
+  - bash .travis.install-mysql-5.7.sh
+  - mysql -u root -e 'create database accounts;'
 
 after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
