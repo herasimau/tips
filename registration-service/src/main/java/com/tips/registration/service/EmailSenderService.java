@@ -18,7 +18,8 @@ public class EmailSenderService {
     public void sendEmail(User user, VerificationToken token) throws MessagingException {
 
         Context context = new Context();
-        context.setVariable("confirmation", "http://localhost:9292/register/confirm/"+token.getToken());
+        context.setVariable("confirmationLink", "http://localhost:9292/register/confirm/"+token.getToken());
+        context.setVariable("email", user.getEmail());
         emailHtmlSender.send(user.getEmail(), "Confirm your mail", "confirmation", context);
     }
 }

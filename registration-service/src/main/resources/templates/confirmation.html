@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title th:remove="all">Order Confirmation</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-</head>
-<body>
+
+<body style="margin: 0; font-family: 'Cabin', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';color: #6e7b8a; text-align: center;">
 <div>
+    <a href="https://tips.io">
+        <img src="https://hub.docker.com/public/images/logos/large_horizontal_logo.png" style="max-width: 600px;" />
+    </a>
+</div>
+<div style="background: #fff; margin: 0 auto; max-width: 550px;">
+    <p style="font-size: 1.25rem; font-weight: 200; line-height: 1.5rem;">
+        Please confirm your email address
+    </p>
 
-    <p th:text="${confirmation}"></p>
+    <p>You have created a TIPS account with the username: <span th:text="${email}">email</span></p>
 
-
+    <a th:href="@{${confirmationLink}}"
+       style="background: #22b8eb;
+           padding: 10px 20px 10px 30px;
+           margin-bottom: 20px;
+           color: #fff;
+           font-size: .85rem;
+           text-decoration: none;
+           display: inline-block;
+           text-align: center;
+           cursor: pointer;
+           border-radius: 5px;">Confirm Your Email</a>
+    <br>(This link will expire in 24 hours.)</br>
 </div>
 
 </body>
+
 </html>
