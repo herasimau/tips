@@ -10,6 +10,9 @@ services:
 
 language: java
 jdk: oraclejdk8
+
+env:
+  - COMMIT=${TRAVIS_COMMIT::7}
 dist: trusty
 addons:
   apt:
@@ -21,7 +24,7 @@ before_script:
   - mysql -u root -e 'create database accounts;'
 
 after_success:
-  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
 
   #TAG
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
