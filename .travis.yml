@@ -73,6 +73,6 @@ after_success:
 
   # MONITORING
   - export HYSTRIX_DASHBOARD=herasimau/hystrix-dashboard
-  - docker build -t $HYSTRIX_DASHBOARD:$COMMIT ./hystrix-dashborad
+  - docker build -t $HYSTRIX_DASHBOARD:$COMMIT ./hystrix-dashboard
   - docker tag $HYSTRIX_DASHBOARD:$COMMIT $HYSTRIX_DASHBOARD:$TAG
   - docker push $HYSTRIX_DASHBOARD
