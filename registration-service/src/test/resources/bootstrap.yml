@@ -1,3 +1,19 @@
 eureka:
   client:
     enabled: false
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: herasimau.leanid@gmail.com
+    password: test
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+      from:
+        email: herasimau.leanid@gmail.com
