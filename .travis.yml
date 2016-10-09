@@ -1,0 +1,6 @@
+services:
+  - docker
+  - mysql
+
+language: java
+jdk: oraclejdk8
