@@ -1,0 +1,81 @@
+version: '2'
+services:
+
+  config-service:
+    image: tips/config-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 8888:8888
+
+  eureka-service:
+    image: tips/eureka-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+          - 8761:8761
+  auth-service:
+    image: tips/auth-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 9191:9191
+
+  api-service:
+    image: tips/api-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 8000:8000
+
+  api-client:
+    image: tips/api-client
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 8100:8100
+
+  hystrix-dashboard:
+    image: tips/hystrix-dashboard
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 8010:8010
+
+  registration-service:
+    image: tips/registration-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 9292:9292
+
+  zipkin-service:
+    image: tips/zipkin-service
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    ports:
+      - 9411:9411

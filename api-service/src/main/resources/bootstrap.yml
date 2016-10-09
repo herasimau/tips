@@ -4,4 +4,4 @@ spring:
       uri: http://localhost:8888
       fail-fast: true
   application:
-    name: auth-service
+    name: api-service
