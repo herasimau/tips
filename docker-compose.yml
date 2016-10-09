@@ -1,8 +1,7 @@
 version: '2'
 services:
-
   config-service:
-    image: tips/config-service
+    image: herasimau/config-service
     restart: always
     logging:
       options:
@@ -12,7 +11,7 @@ services:
       - 8888:8888
 
   eureka-service:
-    image: tips/eureka-service
+    image: herasimau/eureka-service
     restart: always
     logging:
       options:
@@ -21,7 +20,7 @@ services:
     ports:
           - 8761:8761
   auth-service:
-    image: tips/auth-service
+    image: herasimau/auth-service
     restart: always
     logging:
       options:
@@ -31,7 +30,7 @@ services:
       - 9191:9191
 
   api-service:
-    image: tips/api-service
+    image: herasimau/api-service
     restart: always
     logging:
       options:
@@ -41,7 +40,7 @@ services:
       - 8000:8000
 
   api-client:
-    image: tips/api-client
+    image: herasimau/api-client
     restart: always
     logging:
       options:
@@ -51,7 +50,7 @@ services:
       - 8100:8100
 
   hystrix-dashboard:
-    image: tips/hystrix-dashboard
+    image: herasimau/hystrix-dashboard
     restart: always
     logging:
       options:
@@ -61,7 +60,7 @@ services:
       - 8010:8010
 
   registration-service:
-    image: tips/registration-service
+    image: herasimau/registration-service
     restart: always
     logging:
       options:
@@ -71,7 +70,7 @@ services:
       - 9292:9292
 
   zipkin-service:
-    image: tips/zipkin-service
+    image: herasimau/zipkin-service
     restart: always
     logging:
       options:
