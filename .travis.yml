@@ -1,9 +1,0 @@
-services:
-  - docker
-  - mysql
-
-language: java
-jdk: oraclejdk8
-
-before_script:
-  - mysql -e 'create database accounts;'
