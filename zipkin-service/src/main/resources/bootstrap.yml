@@ -4,4 +4,4 @@ spring:
       uri: http:///config-service:8888
       fail-fast: true
   application:
-    name: zipkin-service #pull request for travis
+    name: zipkin-service
