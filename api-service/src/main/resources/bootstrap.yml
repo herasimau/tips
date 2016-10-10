@@ -1,6 +1,7 @@
 spring:
-    application.name: api-service
-    cloud:
-        config:
-          uri: http://config-service:8888
-          failFast: true
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+  application:
+    name: api-service

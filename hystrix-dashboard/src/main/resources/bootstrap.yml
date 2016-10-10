@@ -1,6 +1,7 @@
 spring:
-    application.name: hystrix-dashboard
-    cloud:
-        config:
-          uri: http://config-service:8888
-          failFast: true
+  cloud:
+    config:
+      uri: http:///config-service:8888
+      fail-fast: true
+  application:
+    name: hystrix-dashboard
