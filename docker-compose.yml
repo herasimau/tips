@@ -3,6 +3,9 @@ services:
   config-service:
     image: herasimau/config-service
     restart: always
+    environment:
+    - CONFIGURATION_REPOSITORY=https://github.com/herasimau/tips-config.git
+    - CONFIGURATION_BRANCH=master
     logging:
       options:
         max-size: "10m"
@@ -13,6 +16,10 @@ services:
   eureka-service:
     image: herasimau/eureka-service
     restart: always
+    depends_on:
+    - config-service
+    links:
+    - config-service
     logging:
       options:
         max-size: "10m"
@@ -22,6 +29,12 @@ services:
   auth-service:
     image: herasimau/auth-service
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
@@ -32,6 +45,12 @@ services:
   api-service:
     image: herasimau/api-service
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
@@ -42,6 +61,12 @@ services:
   api-client:
     image: herasimau/api-client
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
@@ -52,6 +77,12 @@ services:
   hystrix-dashboard:
     image: herasimau/hystrix-dashboard
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
@@ -62,6 +93,12 @@ services:
   registration-service:
     image: herasimau/registration-service
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
@@ -72,6 +109,12 @@ services:
   zipkin-service:
     image: herasimau/zipkin-service
     restart: always
+    depends_on:
+    - config-service
+    - eureka-service
+    links:
+    - config-service
+    - eureka-service
     logging:
       options:
         max-size: "10m"
