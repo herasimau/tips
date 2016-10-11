@@ -1,7 +1,7 @@
 spring:
-  cloud:
-    config:
-      uri: http:///config-service:8888
-      fail-fast: true
   application:
     name: zipkin-service
+  cloud:
+    config:
+      uri: http://config-service:8888
+      fail-fast: true

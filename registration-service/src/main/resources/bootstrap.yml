@@ -1,7 +1,7 @@
 spring:
+  application:
+    name: registraion-service
   cloud:
     config:
-      uri: http:///config-service:8888
+      uri: http://config-service:8888
       fail-fast: true
-  application:
-    name: registration-service
