@@ -3,9 +3,6 @@ services:
   config-service:
     image: herasimau/config-service
     restart: always
-    environment:
-    - CONFIGURATION_REPOSITORY=https://github.com/herasimau/tips-config.git
-    - CONFIGURATION_BRANCH=master
     logging:
       options:
         max-size: "10m"
