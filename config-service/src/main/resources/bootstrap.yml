@@ -8,4 +8,4 @@ spring:
             server:
                 git:
                     uri: https://github.com/herasimau/tips-config.git
-        fail-fast: true
+        failFast: true
